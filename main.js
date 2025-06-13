@@ -1,12 +1,18 @@
 let countDown = document.querySelector('.countDown')
 let stop = document.querySelector('.stop')
 let countNumber = 10
+let colors = ['red', 'blue', 'pink', 'orange', 'white', 'green', 'blueviolet']
 
 function countDownFunction(){
     countNumber--
-    console.log(countNumber)
-    if (countNumber == 0)
-        clearInterval(stop)
+    countDown.innerHTML = countNumber
+    countDown.style.color = colors[Math.floor(Math.random() * 7)]
+    if (countNumber == 0){
+        clearInterval(stopInterval)
+        countDown.style.display = 'none'
+        stop.style.display = 'block'
+    }
+     
 }
 
-setInterval(countDownFunction, 1000)
+let stopInterval = setInterval(countDownFunction, 1000)
